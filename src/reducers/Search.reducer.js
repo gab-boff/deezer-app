@@ -1,6 +1,6 @@
 export default function searchReducer(state = "", action) {
   switch (action.type) {
-    case "INPUT":
+    case "SEARCH":
       return action.payload;
 
     default:
