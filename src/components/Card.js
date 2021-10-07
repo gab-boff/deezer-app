@@ -14,8 +14,6 @@ export default function Card() {
   return (
     <div>
       {console.log(theCard)}
-      {/* <div>{JSON.stringify(theCard)}</div>
-      <div>{(theCard.title)}</div> */}
       {theCard.map((response) => (
         <Container
           className="border border-primary d-flex"

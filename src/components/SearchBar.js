@@ -1,10 +1,17 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+// import { searchAction } from "../actions/Search.actions"
 
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 
-export default function SearchBar(props) {
+export default function SearchBar() {
+  const dispatch = useDispatch();
+  const result = useSelector(state => state.search);
+  
+
+
   return (
-    <div className="input-group">
+    <Container className="input-group">
       <input
         type="search"
         className="form-control rounded"
@@ -12,9 +19,9 @@ export default function SearchBar(props) {
         aria-label="Search"
         aria-describedby="search-addon"
       />
-      <button type="button" className="btn btn-outline-primary">
-        search
-      </button>
-    </div>
+      <Button type="button" className="btn" onClick={() => { window.alert('batata') }}>
+        Search
+      </Button>
+    </Container>
   );
 }
