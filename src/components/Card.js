@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { deezerChart, deezerSearch } from "../services/api";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import Player from "./Player";
 
 export default function Card() {
   const result = useSelector((state) => state.search);
@@ -10,22 +11,14 @@ export default function Card() {
   useEffect(() => {
     if (result !== "") {
       deezerSearch(result).then(({ data }) => {
-        console.log(data);
         setTheCard(data.data);
       });
     } else {
       deezerChart().then(({ data }) => {
-        console.log(data);
         setTheCard(data.tracks.data);
       });
     }
   }, [result]);
-
-  const playAudio = (e) => {
-    const audioEl = document.getElementsByClassName("audio-element");
-    // audioEl.play();
-    console.log(audioEl)
-  };
 
   return (
     <div>
@@ -42,14 +35,10 @@ export default function Card() {
             <div>{`Álbum: ${response.album.title}`}</div>
             <div>{`Artista: ${response.artist.name}`}</div>
             <div>{`Duração: ${response.duration} segundos`}</div>
-            <div>
-              <button onClick={playAudio}>
-                <span>Play Audio</span>
-              </button>
-              <audio className="audio-element">
-                <source src={response.preview}></source>
-              </audio>
-            </div>
+            <Player theSong={response.preview}/>
+            <button>
+              <a href={response.link}>Música Completa</a>
+            </button>
           </Container>
         </Container>
       ))}

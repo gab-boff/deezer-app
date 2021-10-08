@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Login from "./pages/Login";
+import Favorites from "./pages/Favorites";
 import Main from "./pages/Main";
 
 export default function Routes() {
@@ -9,7 +9,7 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Main} />
-        {/* <Route path="/main" exact component={Main} /> */}
+        <Route path="/favorites" exact component={Favorites} />
       </Switch>
     </BrowserRouter>
   );
