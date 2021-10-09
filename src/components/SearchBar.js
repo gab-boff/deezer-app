@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { searchAction } from "../actions/Search.actions"
 
 import { Container, Button } from "react-bootstrap";

@@ -1,6 +1,13 @@
-export function favoriteAction () {
+export function favoriteAction (item) {
   return {
-    // type: 'SEARCH',
-    // payload: input,
+    type: 'ADD_FAVORITE',
+    payload: item,
+  }
+}
+
+export function removeFavoriteAction (index) {
+  return {
+    type: 'DELETE_FAVORITE',
+    index,
   }
 }
