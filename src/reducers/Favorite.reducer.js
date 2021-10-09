@@ -12,16 +12,11 @@ export default function favoriteReducer(state = initialUserState, action) {
 
     case "DELETE_FAVORITE":
       return {
-        initialUserState
+        ...state,
+        arr: [],
       };
 
     default:
       return state;
   }
 }
-
-// DELETE_ITEM: (state, action) => ({
-//   ...state,
-//   arr: state.items.filter(item => item !== action.payload),
-//   lastUpdated: Date.now()
-// })

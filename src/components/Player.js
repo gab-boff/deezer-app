@@ -19,9 +19,7 @@ export default function Player(
       <Sound
         url={props.theSong}
         playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-        // playFromPosition={300}
         onPlaying={handleSongPlaying}
-        // onLoading={handleSongLoading}
         onFinishedPlaying={handleSongFinishedPlaying}
       />
     </div>

@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Card from "../components/Card";
-import { removeFavoriteAction } from "../actions/Favorite.actions";
+import { removeFavoriteAction} from "../actions/Favorite.actions";
 
 export default function Favorites() {
-  const resultFavorite = useSelector((state) => state.favorite);
   const dispatch = useDispatch();
-// usar useEffect e resultFavorite para setar localStorage;
+
   return (
     <div>
       <Link to="/">Página Inicial</Link>
@@ -17,7 +16,6 @@ export default function Favorites() {
       }}>
         Apagar
       </button>
-      {/* {console.log(resultFavorite)} */}
       <Card />
     </div>
   );

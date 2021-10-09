@@ -1,48 +1,59 @@
 import React, { useState, useEffect } from "react";
 
 import { deezerChart, deezerSearch } from "../services/api";
-import { Container } from "react-bootstrap";
-
-import { useSelector, useDispatch } from "react-redux";
-import { favoriteAction } from "../actions/Favorite.actions";
 
 import Player from "./Player";
-import Pagination from "./Pagination";
+
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { favoriteAction } from "../actions/Favorite.actions";
+
+import { Cards } from "../styles";
 
 export default function Card() {
   const dispatch = useDispatch();
 
   const resultSearch = useSelector((state) => state.search);
-  const resultFavorite = useSelector((state) => state.favorite);
+  const resultFavorite = useSelector((state) => state.favorite)
 
   const [theCard, setTheCard] = useState([]);
-  const [offset, setOffset] = useState(0);
+  const [theIndex, setTheIndex] = useState(0);
 
   useEffect(() => {
     if (window.location.pathname === "/favorites") {
-      setTheCard(resultFavorite.arr);
+      setTheCard(resultFavorite.arr)
     } else if (resultSearch !== "") {
-      deezerSearch(resultSearch).then(({ data }) => {
+      setTheIndex(0);
+      deezerSearch(resultSearch, theIndex).then(({ data }) => {
         setTheCard(data.data);
       });
     } else {
-      deezerChart().then(({ data }) => {
+      deezerChart(theIndex).then(({ data }) => {
         setTheCard(data.tracks.data);
       });
     }
-  }, [resultSearch, resultFavorite]);
+  }, [resultSearch, resultFavorite, theIndex]);
+
+  const previousPage = () => {
+    if (theIndex <= 20) {
+      setTheIndex(0);
+    } else {
+      setTheIndex(theIndex - 20)
+    }
+  }
+
+  const nextPage = () => {
+    setTheIndex(theIndex + 20);
+  }
 
   return (
     <div>
-      {console.log(resultSearch)}
       {theCard?.map((response) => (
-        <Container
-          className="border border-primary d-flex"
-          style={{ marginTop: "20px" }}
+        <Cards
           key={response.id}
         >
           <img src={response.album.cover_medium} alt="Capa do álbum" />
-          <Container>
+          <div>
             <div>{`Título: ${response.title}`}</div>
             <div>{`Álbum: ${response.album.title}`}</div>
             <div>{`Artista: ${response.artist.name}`}</div>
@@ -51,7 +62,6 @@ export default function Card() {
             <button>
               <a href={response.link}>Música Completa</a>
             </button>
-            {/* <FavoriteButton card={response} /> */}
             <button
               onClick={() => {
                 dispatch(favoriteAction([response]));
@@ -59,17 +69,15 @@ export default function Card() {
             >
               Favoritos
             </button>
-          </Container>
-        </Container>
+          </div>
+        </Cards>
       ))}
-      {/* {response && (
-    <Pagination
-      limit={20}
-      total={response.count}
-      offset={offset}
-      setOffset={setOffset}
-    /> */}
-  )}
+      <button
+       onClick={() => previousPage()}
+      >Anterior</button>
+      <button
+        onClick={() => nextPage()}
+      >Proximo</button>
     </div>
   );
 }
