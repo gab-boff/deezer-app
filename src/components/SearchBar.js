@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchAction } from "../actions/Search.actions"
 
-import { Container, Button } from "react-bootstrap";
+import { Input, CenterButton } from "../styles";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -10,18 +10,18 @@ export default function SearchBar() {
 
 
   return (
-    <Container className="input-group">
-      <input
+    <div>
+      <Input
         type="text"
         className="form-control rounded"
         placeholder="Search"
         onChange={ (e) => setSearchText(e.target.value) }
       />
-      <Button type="button" className="btn" onClick={() => {
+      <CenterButton type="button" onClick={() => {
         dispatch(searchAction(searchText));
       }}>
         Search
-      </Button>
-    </Container>
+      </CenterButton>
+    </div>
   );
 }

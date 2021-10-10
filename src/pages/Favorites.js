@@ -2,20 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Card from "../components/Card";
-import { removeFavoriteAction} from "../actions/Favorite.actions";
+import { cleanFavoriteAction } from "../actions/Favorite.actions";
+
+import { CenterButton, Title } from "../styles";
 
 export default function Favorites() {
   const dispatch = useDispatch();
 
   return (
     <div>
-      <Link to="/">Página Inicial</Link>
-      <div>Página de favoritos</div>
-      <button onClick={() => {
-        dispatch(removeFavoriteAction())
-      }}>
-        Apagar
-      </button>
+      <Title>Página de favoritos</Title>
+      <CenterButton>
+        <Link to="/">Página Inicial</Link>
+      </CenterButton>
+      <CenterButton
+        onClick={() => {
+          dispatch(cleanFavoriteAction());
+        }}
+      >
+        Apagar tudo
+      </CenterButton>
       <Card />
     </div>
   );

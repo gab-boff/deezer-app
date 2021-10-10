@@ -5,9 +5,17 @@ export function favoriteAction (item) {
   }
 }
 
-export function removeFavoriteAction (index) {
+export function removeFavoriteAction (id) {
   return {
     type: 'DELETE_FAVORITE',
-    index,
+    payload: {
+      id,
+    }
+  }
+}
+
+export function cleanFavoriteAction (id) {
+  return {
+    type: 'CLEAN_FAVORITE',
   }
 }

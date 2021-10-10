@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Sound from "react-sound";
+import { CardButton } from "../styles";
 
 export default function Player(
   props,
@@ -13,9 +14,9 @@ export default function Player(
 
   return (
     <div>
-      <button onClick={() => setIsPlaying(!isPlaying)}>
+      <CardButton onClick={() => setIsPlaying(!isPlaying)}>
         {!isPlaying ? "Play" : "Stop"}
-      </button>
+      </CardButton>
       <Sound
         url={props.theSong}
         playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}

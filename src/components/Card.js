@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react";
 
 import { deezerChart, deezerSearch } from "../services/api";
 
-import Player from "./Player";
-
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { favoriteAction } from "../actions/Favorite.actions";
 
-import { Cards } from "../styles";
+
+import CardItem from "./CardItem";
+
+import { CenterButton } from "../styles";
 
 export default function Card() {
-  const dispatch = useDispatch();
 
   const resultSearch = useSelector((state) => state.search);
   const resultFavorite = useSelector((state) => state.favorite)
@@ -46,38 +44,18 @@ export default function Card() {
     setTheIndex(theIndex + 20);
   }
 
+
   return (
     <div>
       {theCard?.map((response) => (
-        <Cards
-          key={response.id}
-        >
-          <img src={response.album.cover_medium} alt="Capa do álbum" />
-          <div>
-            <div>{`Título: ${response.title}`}</div>
-            <div>{`Álbum: ${response.album.title}`}</div>
-            <div>{`Artista: ${response.artist.name}`}</div>
-            <div>{`Duração: ${response.duration} segundos`}</div>
-            <Player theSong={response.preview} />
-            <button>
-              <a href={response.link}>Música Completa</a>
-            </button>
-            <button
-              onClick={() => {
-                dispatch(favoriteAction([response]));
-              }}
-            >
-              Favoritos
-            </button>
-          </div>
-        </Cards>
-      ))}
-      <button
+        <CardItem data={response} key={response.id}></CardItem>
+              ))}
+      <CenterButton
        onClick={() => previousPage()}
-      >Anterior</button>
-      <button
+      >Anterior</CenterButton>
+      <CenterButton
         onClick={() => nextPage()}
-      >Proximo</button>
+      >Proximo</CenterButton>
     </div>
   );
 }
