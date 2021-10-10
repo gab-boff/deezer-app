@@ -32,10 +32,10 @@
   <h3>COMO RODAR O DEEZER APP</h3>
   <ol>
     <li>Clone o repositório;</li>
-    <li>Na raiz do projeto utilize o comando <b>git submodule update --init</b>;</li>
-     <li>Entre na pasta 'cors-anywhere' e verifique se os arquivos foram baixados, após isso execute o comando <b>npm install</b>;</li>
-    <li>Na raiz do projeto utilize o comando <b>npm install</b>;</li>
-    <li>Agora será necessário ter dois terminais abertos, em um deles você devera entrar na pasta 'cors-anywhere' e no outro deverá estar na raiz do projeto. Execute o comando <b>npm install</b> em ambos.</li>
+    <li>Na raiz do projeto utilize o comando <b>"git submodule update --init"</b>;</li>
+     <li>Entre na pasta 'cors-anywhere' e verifique se os arquivos foram baixados, após isso execute o comando <b>"npm install"</b>;</li>
+    <li>Na raiz do projeto utilize o comando <b>"npm install"</b>;</li>
+    <li>Agora será necessário ter dois terminais abertos, em um deles você devera entrar na pasta 'cors-anywhere' e no outro deverá estar na raiz do projeto. Execute o comando <b>"npm install"</b> em ambos.</li>
     <br />
   </ol>
   <p>No final os terminais estarão assim:</p>
