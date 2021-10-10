@@ -39,14 +39,14 @@
     <br />
   </ol>
   <p>No final os terminais estarão assim:</p>
-  <img src="./screenshots/cors.png" width="250px">
-  <img src="./screenshots/terminal.png" width="250px">
+  <img src="./screenshots/cors.png" width="700px">
+  <img src="./screenshots/terminal.png" width="700px">
 </section>
 
 ##
 
-<img src="./screenshots/tela_principal.png" width="250px" />
-<img src="./screenshots/tela_favoritos.png" width="250px" />
+<img src="./screenshots/tela_principal.png" width="700px" />
+<img src="./screenshots/tela_favoritos.png" width=700px" />
 
 
 <section>
