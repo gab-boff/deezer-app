@@ -1,9 +1,6 @@
 <header>
   <h1>PROJETO DEEZER APP</h1>  
     <p>Desenvolvido em ReactJS e Redux, o Deezer App foi desenvolvido para se conectar a API da Deezer.</p>
-    <br>
-    <br>
-    <a href="https://github.com/tryber/sd-011-project-recipes-app/tree/main-group-8">BRANCH ORIGINAL</a>
 </header>
 
 ##
