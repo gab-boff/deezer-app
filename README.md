@@ -42,6 +42,11 @@
 
 ##
 
+<section>
+  <h3>FUNCIONALIDADES</h3>
+  <p> Dentro do Deezer App é possível ver as principais músicas do momento na tela inicial. Também é possível pesquisar e ouvir a prévia de qualquer música disponível dentro do Deezer, além de poder adicionar e remover músicas da lista de favoritos.</p>
+</section>
+
 <img src="./screenshots/tela_principal.png" width="700px" />
 <img src="./screenshots/tela_favoritos.png" width=700px" />
 
